@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Main {
 
@@ -43,7 +42,7 @@ public class Main {
 
         // Create the genesis block.
         ArrayList<Transaction> genesisTransactions = new ArrayList<>();
-        genesisTransactions.add(new Transaction("Alice", "Bob", 500000.0));
+        genesisTransactions.add(new Transaction("Alice", "Bob", 10000.0));
         genesisTransactions.add(new Transaction("Bob", "Charlie", 2.0));
         Block genesisBlock = new Block("0", genesisTransactions);
 
@@ -67,6 +66,25 @@ public class Main {
 
         System.out.println("\nSecond block added to blockchain");
         System.out.println("Block hash: " + secondBlock.getCurrentHash());
+
+        // Display the blockchain after two blocks
+        System.out.println("\nBlockchain now contains " + blockchain.size() + " blocks");
+
+        // Create a third block with new transactions
+        ArrayList<Transaction> thirdBlockTransactions = new ArrayList<>();
+        thirdBlockTransactions.add(new Transaction("Eve", "Alice", 1.0));
+        thirdBlockTransactions.add(new Transaction("Charlie", "Eve", 4.5));
+        thirdBlockTransactions.add(new Transaction("Bob", "Dave", 2.3));
+        thirdBlockTransactions.add(new Transaction("Dave", "Alice", 0.5));
+
+        // Create the third block using the hash of the second block
+        Block thirdBlock = new Block(secondBlock.getCurrentHash(), thirdBlockTransactions);
+
+        // Add the third block to the blockchain
+        blockchain.add(thirdBlock);
+
+        System.out.println("\nThird block added to blockchain");
+        System.out.println("Block hash: " + thirdBlock.getCurrentHash());
 
         // Display the complete blockchain
         System.out.println("\nBlockchain now contains " + blockchain.size() + " blocks");
