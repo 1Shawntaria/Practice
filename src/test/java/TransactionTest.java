@@ -1,8 +1,7 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class TransactionTest {
+public class TransactionTest {
 
     @Test
     void testTransactionCreation() {
@@ -13,9 +12,9 @@ class TransactionTest {
         Transaction transaction = new Transaction(sender, recipient, amount);
 
         // Assert
-        assertEquals(sender, transaction.getSender());
-        assertEquals(recipient, transaction.getRecipient());
-        assertEquals(amount, transaction.getAmount());
+        Assertions.assertEquals(sender, transaction.getSender());
+        Assertions.assertEquals(recipient, transaction.getRecipient());
+        Assertions.assertEquals(amount, transaction.getAmount(), 0.000001);
     }
 
     @Test
@@ -27,7 +26,7 @@ class TransactionTest {
         String result = transaction.toString();
 
         // Assert
-        assertEquals("Alice pays Bob 5.0 BTC", result);
+        Assertions.assertEquals("Alice pays Bob 5.0 BTC", result);
     }
 
     @Test
@@ -36,8 +35,8 @@ class TransactionTest {
         Transaction transaction = new Transaction("Charlie", "Dave", 0.0);
 
         // Assert
-        assertEquals(0.0, transaction.getAmount());
-        assertEquals("Charlie pays Dave 0.0 BTC", transaction.toString());
+        Assertions.assertEquals(0.0, transaction.getAmount(), 0.000001);
+        Assertions.assertEquals("Charlie pays Dave 0.0 BTC", transaction.toString());
     }
 
     @Test
@@ -46,7 +45,7 @@ class TransactionTest {
         Transaction transaction = new Transaction("Eve", "Frank", -1.5);
 
         // Assert
-        assertEquals(-1.5, transaction.getAmount());
-        assertEquals("Eve pays Frank -1.5 BTC", transaction.toString());
+        Assertions.assertEquals(-1.5, transaction.getAmount(), 0.000001);
+        Assertions.assertEquals("Eve pays Frank -1.5 BTC", transaction.toString());
     }
 }

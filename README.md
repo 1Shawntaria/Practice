@@ -13,15 +13,15 @@ This is a simple blockchain demonstration application that shows the basic conce
 
 ## Project Structure
 - `src/` - Source code
-  - `Main.java` - Main application entry point
-  - `Block.java` - Block implementation
-  - `Transaction.java` - Transaction implementation
-  - `DSA.java` - Data structures and algorithms examples
+  - `main.java.SimpleBlockchain.java` - main.java.SimpleBlockchain application entry point
+  - `main.java.Block.java` - main.java.Block implementation
+  - `main.java.Transaction.java` - main.java.Transaction implementation
+  - `main.java.DSA.java` - Data structures and algorithms examples
 - `test/` - Test cases for all classes
 
 ## Running the Application
 ```
-java -cp target/classes Main
+java -cp target/classes main.java.SimpleBlockchain
 ```
 
 ## Running Tests

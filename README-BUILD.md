@@ -42,7 +42,7 @@ If you're experiencing build failures, try the following:
    ```
 
 5. **Verify directory structure**: Ensure your source files are in the correct directories
-   - Main Java files should be in: `/src`
+   - main.java.SimpleBlockchain Java files should be in: `/src`
    - Test Java files should be in: `/test`
 
 6. **Update dependencies**: Try running

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Main {
+public class SimpleBlockchain {
 
     // This is the main method that runs the program.
 

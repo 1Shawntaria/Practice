@@ -1,3 +1,3 @@
-# Main Java Source folder
+# main.java.SimpleBlockchain Java Source folder
 
 This directory is for storing the main Java source files according to Maven standard directory layout.
