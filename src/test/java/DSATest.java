@@ -1,8 +1,10 @@
-import org.junit.jupiter.api.Assertions;
-
 import org.junit.jupiter.api.Test;
 
-public class DSATest {
+import java.util.HashMap;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class DSATest {
 
     @Test
     void testBinarySearchFound() {
@@ -14,7 +16,7 @@ public class DSATest {
         int result = DSA.binarySearch(arr, target);
 
         // Assert
-        Assertions.assertEquals(2, result); // 5 is at index 2
+        assertEquals(2, result); // 5 is at index 2
     }
 
     @Test
@@ -27,7 +29,7 @@ public class DSATest {
         int result = DSA.binarySearch(arr, target);
 
         // Assert
-        Assertions.assertEquals(-1, result); // 6 is not in the array
+        assertEquals(-1, result); // 6 is not in the array
     }
 
     @Test
@@ -40,7 +42,7 @@ public class DSATest {
         int result = DSA.binarySearch(arr, target);
 
         // Assert
-        Assertions.assertEquals(0, result); // 1 is at index 0
+        assertEquals(0, result); // 1 is at index 0
     }
 
     @Test
@@ -53,7 +55,7 @@ public class DSATest {
         int result = DSA.binarySearch(arr, target);
 
         // Assert
-        Assertions.assertEquals(5, result); // 11 is at index 5
+        assertEquals(5, result); // 11 is at index 5
     }
 
     @Test
@@ -66,7 +68,7 @@ public class DSATest {
         int result = DSA.binarySearch(arr, target);
 
         // Assert
-        Assertions.assertEquals(-1, result); // Empty array should return -1
+        assertEquals(-1, result); // Empty array should return -1
     }
 
     @Test
@@ -75,8 +77,8 @@ public class DSATest {
         int[] arr = {5};
 
         // Act & Assert
-        Assertions.assertEquals(0, DSA.binarySearch(arr, 5)); // Found
-        Assertions.assertEquals(-1, DSA.binarySearch(arr, 4)); // Not found
+        assertEquals(0, DSA.binarySearch(arr, 5)); // Found
+        assertEquals(-1, DSA.binarySearch(arr, 4)); // Not found
     }
 
     @Test
@@ -88,7 +90,7 @@ public class DSATest {
         int mode = DSA.findMode(arr);
 
         // Assert
-        Assertions.assertEquals(2, mode); // 2 appears three times, which is most frequent
+        assertEquals(2, mode); // 2 appears three times, which is most frequent
     }
 
     @Test
@@ -100,7 +102,7 @@ public class DSATest {
         int mode = DSA.findMode(arr);
 
         // Assert
-        Assertions.assertEquals(7, mode); // All values are 7
+        assertEquals(7, mode); // All values are 7
     }
 
     @Test
@@ -113,7 +115,7 @@ public class DSATest {
 
         // Assert
         // Both 2 and 3 appear twice, but 2 is encountered first
-        Assertions.assertEquals(2, mode);
+        assertEquals(2, mode);
     }
 
     @Test
@@ -125,7 +127,7 @@ public class DSATest {
         int mode = DSA.findMode(arr);
 
         // Assert
-        Assertions.assertEquals(5, mode); // Only one element
+        assertEquals(5, mode); // Only one element
     }
 
     @Test
@@ -137,6 +139,6 @@ public class DSATest {
         int mode = DSA.findMode(arr);
 
         // Assert
-        Assertions.assertEquals(-1, mode); // -1 appears three times
+        assertEquals(-1, mode); // -1 appears three times
     }
 }

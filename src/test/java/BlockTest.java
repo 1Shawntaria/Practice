@@ -1,9 +1,10 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-public class BlockTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+class BlockTest {
 
     @Test
     void testBlockCreation() {
@@ -17,9 +18,9 @@ public class BlockTest {
         Block block = new Block(previousHash, transactions);
 
         // Assert
-        Assertions.assertEquals(previousHash, block.getPreviousHash());
-        Assertions.assertNotNull(block.getCurrentHash());
-        Assertions.assertEquals(transactions, block.getTransactions());
+        assertEquals(previousHash, block.getPreviousHash());
+        assertNotNull(block.getCurrentHash());
+        assertEquals(transactions, block.getTransactions());
     }
 
     @Test
@@ -35,18 +36,18 @@ public class BlockTest {
         Block block2 = new Block(previousHash, transactions2);
 
         // Same transactions, same previous hash should generate same hash
-        Assertions.assertEquals(block1.getCurrentHash(), block2.getCurrentHash());
+        assertEquals(block1.getCurrentHash(), block2.getCurrentHash());
 
         // Different transactions should generate different hash
         ArrayList<Transaction> transactions3 = new ArrayList<>();
         transactions3.add(new Transaction("Bob", "Charlie", 3.0));
         Block block3 = new Block(previousHash, transactions3);
-        Assertions.assertNotEquals(block1.getCurrentHash(), block3.getCurrentHash());
+        assertNotEquals(block1.getCurrentHash(), block3.getCurrentHash());
 
         // Different previous hash should generate different hash
         ArrayList<Transaction> transactions4 = new ArrayList<>();
         transactions4.add(new Transaction("Alice", "Bob", 5.0));
         Block block4 = new Block("different_hash", transactions4);
-        Assertions.assertNotEquals(block1.getCurrentHash(), block4.getCurrentHash());
+        assertNotEquals(block1.getCurrentHash(), block4.getCurrentHash());
     }
 }

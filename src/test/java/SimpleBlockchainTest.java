@@ -1,44 +1,51 @@
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class SimpleBlockchainTest {
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
-    private final java.io.ByteArrayOutputStream outContent = new java.io.ByteArrayOutputStream();
-    private final java.io.PrintStream originalOut = System.out;
+import static org.junit.jupiter.api.Assertions.*;
 
-    @org.junit.jupiter.api.BeforeEach
+class SimpleBlockchainTest {
+
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
+
+    @BeforeEach
     void setUpStreams() {
-        System.setOut(new java.io.PrintStream(outContent));
+        System.setOut(new PrintStream(outContent));
     }
 
-    @org.junit.jupiter.api.AfterEach
+    @AfterEach
     void restoreStreams() {
         System.setOut(originalOut);
     }
 
-    @org.junit.jupiter.api.Test
-    void testMain() {
+    @Test
+    void testSimpleBlockchainTest() {
         // Call the main method which will create blocks and add them to the blockchain
         SimpleBlockchain.main(new String[]{});
 
         // Verify the output contains expected strings
         String output = outContent.toString();
-        Assertions.assertTrue(output.contains("Welcome to my Blockchain program"));
-        Assertions.assertTrue(output.contains("Genesis block added to blockchain"));
-        Assertions.assertTrue(output.contains("Second block added to blockchain"));
-        Assertions.assertTrue(output.contains("Third block added to blockchain"));
-        Assertions.assertTrue(output.contains("--- BLOCKCHAIN CONTENTS ---"));
+        assertTrue(output.contains("Welcome to my Blockchain program"));
+        assertTrue(output.contains("Genesis block added to blockchain"));
+        assertTrue(output.contains("Second block added to blockchain"));
+        assertTrue(output.contains("Third block added to blockchain"));
+        assertTrue(output.contains("--- BLOCKCHAIN CONTENTS ---"));
 
         // Verify block hashes are displayed
-        Assertions.assertTrue(output.contains("Block hash:"));
-        Assertions.assertTrue(output.contains("Previous Hash:"));
-        Assertions.assertTrue(output.contains("Current Hash:"));
+        assertTrue(output.contains("Block hash:"));
+        assertTrue(output.contains("Previous Hash:"));
+        assertTrue(output.contains("Current Hash:"));
 
         // Verify transactions are displayed
-        Assertions.assertTrue(output.contains("Transactions:"));
-        Assertions.assertTrue(output.contains("Alice pays Bob"));
+        assertTrue(output.contains("Transactions:"));
+        assertTrue(output.contains("Alice pays Bob"));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void testDisplayBlockchain() throws Exception {
         // This method tests the displayBlockchain method by using reflection to call it directly
         // First, setup a sample blockchain
@@ -55,8 +62,8 @@ public class SimpleBlockchainTest {
 
         // Verify expected output
         String output = outContent.toString();
-        Assertions.assertTrue(output.contains("--- BLOCKCHAIN CONTENTS ---"));
-        Assertions.assertTrue(output.contains("Block #0"));
-        Assertions.assertTrue(output.contains("Previous Hash: 0"));
+        assertTrue(output.contains("--- BLOCKCHAIN CONTENTS ---"));
+        assertTrue(output.contains("Block #0"));
+        assertTrue(output.contains("Previous Hash: 0"));
     }
 }
